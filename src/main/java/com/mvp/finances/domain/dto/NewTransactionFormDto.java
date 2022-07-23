@@ -1,33 +1,30 @@
 package com.mvp.finances.domain.dto;
 
-import com.mvp.finances.domain.contracts.FormDto;
 import com.mvp.finances.domain.models.ReleaseType;
-import com.mvp.finances.domain.models.Transaction;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
-public class NewTransactionFormDto implements FormDto<Transaction> {
+public class NewTransactionFormDto {
     private String title;
     private BigDecimal amount;
+    private Long categoryId;
     private ReleaseType releaseType;
-
-    public NewTransactionFormDto() {
-    }
+    private Date transactionDate;
 
     public String getTitle() {
         return title;
     }
-
     public BigDecimal getAmount() {
         return amount;
     }
-
     public ReleaseType getReleaseType() {
         return releaseType;
     }
-
-    @Override
-    public Transaction toModel() {
-        return new Transaction(title, amount, releaseType);
+    public Date getTransactionDate() {
+        return transactionDate;
+    }
+    public Long getCategoryId() {
+        return categoryId;
     }
 }

@@ -23,16 +23,17 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<Transaction>> list() {
-        return ResponseEntity.ok(transactionService.findAll());
-    }
 
     @PostMapping
     public ResponseEntity<TransactionViewDto> create(@RequestBody NewTransactionFormDto transactionDto, UriComponentsBuilder uriBuilder){
         Transaction transaction = this.transactionService.create(transactionDto);
         URI ur = uriBuilder.path("/transactions/" + transaction.getId()).build().toUri();
         return ResponseEntity.created(ur).body(new TransactionViewDto(transaction));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TransactionViewDto>> list() {
+        return ResponseEntity.ok(transactionService.findAll());
     }
 
     @PutMapping("/{id}")
