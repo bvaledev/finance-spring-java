@@ -5,6 +5,7 @@ create table category
   PRIMARY KEY(id)
 );
 
+INSERT INTO category(title) VALUES ('Sem Categoria');
 INSERT INTO category(title) VALUES ('Educação');
 INSERT INTO category(title) VALUES ('Alimentação');
 INSERT INTO category(title) VALUES ('Transporte');

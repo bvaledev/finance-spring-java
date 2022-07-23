@@ -1,7 +1,5 @@
-package com.mvp.finances.data.services;
+package com.mvp.finances.domain.services;
 
-import com.mvp.finances.domain.contracts.CategoryService;
-import com.mvp.finances.domain.contracts.TransactionService;
 import com.mvp.finances.domain.dto.NewTransactionFormDto;
 import com.mvp.finances.domain.dto.TransactionViewDto;
 import com.mvp.finances.domain.dto.UpdateTransactionFormDto;
@@ -23,7 +21,7 @@ public class TransactionServiceImpl implements TransactionService {
     private NewTransactionFormMapper transactionFormMapper;
 
     @Autowired
-    TransactionServiceImpl(TransactionRepository repository, CategoryService categoryService, NewTransactionFormMapper transactionFormMapper){
+    TransactionServiceImpl(TransactionRepository repository, CategoryService categoryService, NewTransactionFormMapper transactionFormMapper) {
         this.repository = repository;
         this.notFoundMessage = "Transaction Not Found";
         this.categoryService = categoryService;
@@ -36,7 +34,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Transaction create(NewTransactionFormDto transactionDTO){
+    public Transaction create(NewTransactionFormDto transactionDTO) {
         return this.repository.save(transactionFormMapper.map(transactionDTO));
     }
 
@@ -46,18 +44,18 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Transaction update(Long id, UpdateTransactionFormDto transactionDto){
+    public Transaction update(Long id, UpdateTransactionFormDto transactionDto) {
         Transaction transaction = this.findOne(id);
-        Category category = this.categoryService.findOne(transactionDto.getCategoryId());
         transaction.setTitle(transactionDto.getTitle());
         transaction.setAmount(transactionDto.getAmount());
         transaction.setReleaseType(transactionDto.getReleaseType());
+        Category category = transactionFormMapper.getCategory(transactionDto.getCategoryId());
         transaction.setCategory(category);
         return this.repository.save(transaction);
     }
 
     @Override
-    public Transaction delete(Long id){
+    public Transaction delete(Long id) {
         Transaction transaction = this.findOne(id);
         this.repository.deleteById(transaction.getId());
         return transaction;

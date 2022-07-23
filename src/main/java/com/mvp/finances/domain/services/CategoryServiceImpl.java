@@ -1,6 +1,6 @@
-package com.mvp.finances.data.services;
+package com.mvp.finances.domain.services;
 
-import com.mvp.finances.domain.contracts.CategoryService;
+import com.mvp.finances.domain.services.CategoryService;
 import com.mvp.finances.domain.exceptions.NotFoundException;
 import com.mvp.finances.domain.models.Category;
 import com.mvp.finances.infra.database.repository.CategoryRepository;

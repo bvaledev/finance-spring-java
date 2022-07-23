@@ -1,4 +1,4 @@
-package com.mvp.finances.domain.contracts;
+package com.mvp.finances.domain.services;
 
 import com.mvp.finances.domain.models.Category;
 

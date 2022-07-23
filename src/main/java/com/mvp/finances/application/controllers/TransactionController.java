@@ -1,6 +1,6 @@
 package com.mvp.finances.application.controllers;
 
-import com.mvp.finances.domain.contracts.TransactionService;
+import com.mvp.finances.domain.services.TransactionService;
 import com.mvp.finances.domain.dto.NewTransactionFormDto;
 import com.mvp.finances.domain.dto.TransactionViewDto;
 import com.mvp.finances.domain.dto.UpdateTransactionFormDto;
