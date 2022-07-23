@@ -43,4 +43,16 @@ public class Transaction {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public void setReleaseType(ReleaseType releaseType) {
+        this.releaseType = releaseType;
+    }
 }

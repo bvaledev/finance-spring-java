@@ -7,8 +7,25 @@ spring:
     password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-#    defer-datasource-initialization: true
+    # defer-datasource-initialization: true
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+api:
+  info:
+    title: Personal Finance API
+    description: API of personal finance control
+    version: 1.0.0
+    terms-of-service: https://brendo.dev.br/personal-finances
+    contact:
+      name: Brendo Vale
+      email: brendo@brendo.dev.br
+      url: https://brendo.dev.br
+    license:
+      name: Apache 2.0
+      url: http://www.apache.org/licenses/LICENSE-2.0.html
+springdoc:
+  swagger-ui:
+    path: /   # Redirect http://localhost:8080 to http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
+    enabled: true
