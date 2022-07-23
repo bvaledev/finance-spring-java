@@ -1,24 +1,8 @@
 package com.mvp.finances.domain.exceptions;
 
 public class NotFoundException extends RuntimeException {
-    private String message;
-
-    public NotFoundException() {
-        super();
-    }
-
+    private static final long serialVersionUID = 1L;
     public NotFoundException(String message) {
         super(message);
-        this.message = message;
-    }
-
-    public NotFoundException(String message, Throwable err){
-        super(message, err);
-        this.message = message;
-    }
-
-    @Override
-    public String getMessage() {
-        return message;
     }
 }
