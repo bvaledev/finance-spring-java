@@ -51,8 +51,8 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI api() {
         return new OpenAPI()
-                .schemaRequirement(SECURITY_SCHEME_NAME, getSecurityScheme())
-                .security(getSecurityRequirement())
+//                .schemaRequirement(SECURITY_SCHEME_NAME, getSecurityScheme())
+//                .security(getSecurityRequirement())
                 .info(info());
     }
 
