@@ -21,7 +21,7 @@ public class NewTransactionFormMapper implements Mapper<NewTransactionFormDto, T
         if (categoryId == null) {
             categoryId = Long.valueOf(1);
         }
-        return this.categoryService.findOne(categoryId);
+        return this.categoryService.findCategoryById(categoryId);
     }
 
     @Override

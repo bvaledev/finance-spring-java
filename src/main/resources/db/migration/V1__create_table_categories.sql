@@ -1,7 +1,7 @@
 create table category
 (
   id               bigint not null auto_increment,
-  title            VARCHAR(50) NOT NULL,
+  title            VARCHAR(50) NOT NULL UNIQUE,
   PRIMARY KEY(id)
 );
 
