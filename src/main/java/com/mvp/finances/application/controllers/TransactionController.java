@@ -35,7 +35,6 @@ public class TransactionController {
         return ResponseEntity.ok(transactionService.findAll());
     }
 
-
     @GetMapping("/report")
     public ResponseEntity<List<TransactionReportByDate>> report(
             @RequestParam(name = "type") ReleaseType releaseType,

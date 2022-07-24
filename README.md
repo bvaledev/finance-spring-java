@@ -1,7 +1,10 @@
-# Minhas Finanças - Java Spring Boot API 
+# Minhas Finanças - Java Spring Boot API
+Aplicação para controle financeiro de forma simples, respeitando as 
+regras da contabilidade. * [Documentação](https://finance-java-spring.herokuapp.com/)
 
-Aplicação para controle finânceiro.
+![alt text](./pic.png)
 
-### Reference Documentation
-
-* [Swagger](https://finance-java-spring.herokuapp.com/)
+## Tipo de lançamento para transação
+| Crédito | Débito  |
+|-------|---------|
+| Saída | Entrada |
