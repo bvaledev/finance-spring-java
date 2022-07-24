@@ -15,11 +15,13 @@ INSERT INTO transaction(category_id, title, amount, release_type, transaction_da
 VALUES (3, 'Café da manhã', 110.80, 'DEBIT', '2022-07-23', NOW());
 INSERT INTO transaction(category_id,  title, amount, release_type, transaction_date, created_at)
 VALUES (4, 'Ir academia', 12.25, 'DEBIT', '2022-07-23', NOW());
-VALUES (4, 'Ir Supermercado', 22.25, 'DEBIT', '2022-07-23', NOW());
+VALUES (4, 'Ir Supermercado', 22.25, 'CREDIT', '2022-01-23', NOW());
 INSERT INTO transaction(category_id,  title, amount, release_type, transaction_date, created_at)
-VALUES (3, 'Supermercado', 580.25, 'DEBIT', '2022-07-23', NOW());
-VALUES (4, 'Ir Casa', 32.25, 'DEBIT', '2022-07-23', NOW());
+VALUES (3, 'Supermercado', 580.25, 'CREDIT', '2022-01-23', NOW());
+VALUES (4, 'Ir Casa', 32.25, 'CREDIT', '2022-03-23', NOW());
 INSERT INTO transaction(category_id,  title, amount, release_type, transaction_date, created_at)
-VALUES (3, 'Torta', 83.54, 'DEBIT', '2022-07-23', NOW());
+VALUES (3, 'Torta', 83.54, 'CREDIT', '2022-03-23', NOW());
 INSERT INTO transaction(category_id,  title, amount, release_type, transaction_date, created_at)
-VALUES (3, 'Pregos', 1, 'DEBIT', '2022-07-23', NOW());
+VALUES (3, 'Pregos', 2, 'DEBIT', '2022-03-23', NOW());
+INSERT INTO transaction(category_id,  title, amount, release_type, transaction_date, created_at)
+VALUES (3, 'Pregos', 150, 'DEBIT', '2022-03-23', NOW());

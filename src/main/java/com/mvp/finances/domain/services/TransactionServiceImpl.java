@@ -1,16 +1,16 @@
 package com.mvp.finances.domain.services;
 
-import com.mvp.finances.domain.dto.NewTransactionFormDto;
-import com.mvp.finances.domain.dto.TransactionViewDto;
-import com.mvp.finances.domain.dto.UpdateTransactionFormDto;
+import com.mvp.finances.domain.dto.*;
 import com.mvp.finances.domain.exceptions.NotFoundException;
 import com.mvp.finances.domain.mapper.NewTransactionFormMapper;
 import com.mvp.finances.domain.models.Category;
+import com.mvp.finances.domain.models.ReleaseType;
 import com.mvp.finances.domain.models.Transaction;
 import com.mvp.finances.infra.database.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -59,5 +59,15 @@ public class TransactionServiceImpl implements TransactionService {
         Transaction transaction = this.findOne(id);
         this.repository.deleteById(transaction.getId());
         return transaction;
+    }
+
+    @Override
+    public List<TransactionReportByCategory> reportByCategory(ReleaseType releaseType, Integer year){
+        return this.repository.reportByCategory(releaseType, year);
+    }
+
+    @Override
+    public List<TransactionReportByDate> reportByYear(ReleaseType releaseType, Integer year) {
+        return this.repository.reportByYear(releaseType, year);
     }
 }

@@ -1,9 +1,8 @@
 package com.mvp.finances.application.controllers;
 
+import com.mvp.finances.domain.dto.*;
+import com.mvp.finances.domain.models.ReleaseType;
 import com.mvp.finances.domain.services.TransactionService;
-import com.mvp.finances.domain.dto.NewTransactionFormDto;
-import com.mvp.finances.domain.dto.TransactionViewDto;
-import com.mvp.finances.domain.dto.UpdateTransactionFormDto;
 import com.mvp.finances.domain.models.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,7 @@ public class TransactionController {
 
 
     @PostMapping
-    public ResponseEntity<TransactionViewDto> create(@RequestBody NewTransactionFormDto transactionDto, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<TransactionViewDto> create(@RequestBody NewTransactionFormDto transactionDto, UriComponentsBuilder uriBuilder) {
         Transaction transaction = this.transactionService.create(transactionDto);
         URI ur = uriBuilder.path("/transactions/" + transaction.getId()).build().toUri();
         return ResponseEntity.created(ur).body(new TransactionViewDto(transaction));
@@ -34,6 +33,23 @@ public class TransactionController {
     @GetMapping
     public ResponseEntity<List<TransactionViewDto>> list() {
         return ResponseEntity.ok(transactionService.findAll());
+    }
+
+
+    @GetMapping("/report")
+    public ResponseEntity<List<TransactionReportByDate>> report(
+            @RequestParam(name = "type") ReleaseType releaseType,
+            @RequestParam(name = "year") Integer year
+    ) {
+        return ResponseEntity.ok(this.transactionService.reportByYear(releaseType, year));
+    }
+
+    @GetMapping("/report/category")
+    public ResponseEntity<List<TransactionReportByCategory>> report_category(
+            @RequestParam(name = "type") ReleaseType releaseType,
+            @RequestParam(name = "year") Integer year
+    ) {
+        return ResponseEntity.ok(this.transactionService.reportByCategory(releaseType, year));
     }
 
     @PutMapping("/{id}")
