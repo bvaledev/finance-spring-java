@@ -15,8 +15,8 @@ spring:
         format_sql: true
 api:
   info:
-    title: Personal Finance API
-    description: API of personal finance control
+    title: Minhas Finanças
+    description: Aplicação para controle finânceiro.
     version: 1.0.0
     terms-of-service: https://brendo.dev.br/personal-finances
     contact:
